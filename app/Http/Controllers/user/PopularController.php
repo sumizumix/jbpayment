@@ -11,6 +11,7 @@ class PopularController extends Controller
     public function userpayment(){
         $views = DB::table('course')->get();
         $data = DB::table('pay')->get();
-        return view('user.auth.userpayment',compact('views','data'));
+        $pay = DB::table('payment')->get();
+        return view('user.auth.userpayment',compact('views','data','pay'));
     }
 }

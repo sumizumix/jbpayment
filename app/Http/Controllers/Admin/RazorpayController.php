@@ -30,21 +30,38 @@ class RazorpayController extends Controller
         if(count($input) && !empty($input['razorpay_payment_id'])) {
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount' => $payment['amount']));
-                $payment = PaymentModel::create([
-                    'r_payment_id' => $response['id'],
-                    'method' => $response['method'],
-                    'currency' => $response['currency'],
-                    'user_email' => $response['email'],
-                    'amount' => $response['amount']/100,
-                    'json_response' => json_encode((array)$response),
-                    'userid' => Auth::id(),
-                    'cname' => $input['cname'], 
-                    'ctype' => $input['ctype'],
-                    'name' => $input['name'],
-                    'regno' => $input['regno'],
-                    'email' => $input['email'], 
-                ]);
-    
+               // Creating the PaymentModel record
+$payment = PaymentModel::create([
+    'r_payment_id' => $response['id'],
+    'method' => $response['method'],
+    'currency' => $response['currency'],
+    'user_email' => $response['email'],
+    'amount' => $response['amount'] / 100,
+    'json_response' => json_encode((array) $response),
+    'userid' => Auth::id(),
+    'cname' => $input['cname'], 
+    'ctype' => $input['ctype'],
+    'name' => $input['name'],
+    'regno' => $input['regno'],
+    'email' => $input['email'], 
+]);
+
+// Passing data to the view
+return view('pages.reciept', [
+    'r_payment_id' => $response['id'],
+    'method' => $response['method'],
+    'currency' => $response['currency'],
+    'user_email' => $response['email'],
+    'amount' => $response['amount'] / 100,
+    'json_response' => json_encode((array) $response),
+    'userid' => Auth::id(),
+    'cname' => $input['cname'], 
+    'ctype' => $input['ctype'],
+    'name' => $input['name'],
+    'regno' => $input['regno'],
+    'email' => $input['email'], 
+]);
+
             } catch(Exception $e) {
                 return $e->getMessage();
                 Session::put('error',$e->getMessage());
