@@ -69,12 +69,6 @@
                 </a>
             </li>
             <li class="me-30px">
-                <a class="dribbble" href="http://www.dribbble.com/" target="_blank">
-                    <i class="fa-brands fa-dribbble me-10px"></i>
-                    <span class="alt-font">Dribbble</span>
-                </a>
-            </li>
-            <li class="me-30px">
                 <a class="twitter" href="https://www.twitter.com/" target="_blank">
                     <i class="fa-brands fa-twitter me-10px"></i>
                     <span class="alt-font">Twitter</span>

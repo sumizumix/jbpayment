@@ -18972,7 +18972,7 @@
         .dropdown-menu
         a {
         color: var(--white);
-        opacity: 0.6;
+        opacity: 1;
     }
     [data-mobile-nav-style="full-screen-menu"]
         .navbar-full-screen-menu-inner
@@ -19124,6 +19124,7 @@
         padding: 0 !important;
         border-radius: 0 !important;
         border: 0 !important;
+        background: transparent;
     }
     [data-mobile-nav-style="full-screen-menu"]
         .navbar-full-screen-menu-inner

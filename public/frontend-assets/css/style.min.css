@@ -8779,7 +8779,7 @@ button:focus {
     box-shadow: none;
 }
 .navbar-toggler-line {
-    background: var(--dark-gray);
+    background: var(--white);
     height: 2px;
     width: 22px;
     content: "";
@@ -9637,7 +9637,7 @@ blockquote footer {
     padding: 12px 32px;
 }
 .btn.btn-rounded.btn-small {
-    padding: 10px 26px;
+    padding: 10px 26px !important;
 }
 .btn.btn-rounded.btn-very-small {
     padding: 8px 20px;

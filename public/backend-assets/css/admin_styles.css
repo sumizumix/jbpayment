@@ -16510,7 +16510,7 @@ fieldset:disabled .btn {
     font-size: 21px;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover {
-    background-color: rgba(93, 135, 255, 0.1);
+    background-color: rgb(255 255 255);
     color: #eb1e19;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link:hover.has-arrow:after {
