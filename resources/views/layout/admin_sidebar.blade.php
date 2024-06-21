@@ -1,20 +1,20 @@
 <aside class="left-sidebar">
     <!-- Sidebar scroll-->
     <div>
-        {{-- <div class="brand-logo d-flex align-items-center justify-content-between">
+        <div class="brand-logo d-flex align-items-center justify-content-between">
             <a href="{{ route('dashboard') }}" class="text-nowrap logo-img">
-                <img src="{{ asset('/assets/images/logos/favicon.png') }}" width="150" alt="" />
+                <img src="{{ asset('/backend-assets/images/logos/jb-international-logo-white.png') }}" width="150" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8"></i>
             </div>
-        </div> --}}
+        </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
             <ul id="sidebarnav">
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">Home</span>
+                    <span class="hide-menu">Admin Panel</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
@@ -38,7 +38,7 @@
                     <a class="sidebar-link {{ request()->routeIs(['admin.auth.courses.index', 'admin.auth.service.create', 'admin.service.edit']) ? 'active' : '' }}"
                         href="{{ route('admin.auth.courses.index') }}" aria-expanded="false">
                         <span>
-                          
+
                             <i class="ti ti-book"></i>
                         </span>
                         <span class="hide-menu">Courses</span>
@@ -61,8 +61,8 @@
                             <i class="ti ti-shopping-cart"></i> </span>
                         <span class="hide-menu">Reports </span>
                     </a>
-                </li> 
-                
+                </li>
+
             </ul>
         </nav>
 

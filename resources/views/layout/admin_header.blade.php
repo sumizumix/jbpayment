@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Admin Header</title>
-  <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/vdc-favicon.png') }}" />
-  <link rel="stylesheet" href="{{ asset('assets/css/admin_styles.css') }}" />
- 
+  <link rel="shortcut icon" type="image/png" href="{{ asset('backend-assets/images/logos/vdc-favicon.png') }}" />
+  <link rel="stylesheet" href="{{ asset('backend-assets/css/admin_styles.css') }}" />
+
 </head>
 
 <body>
