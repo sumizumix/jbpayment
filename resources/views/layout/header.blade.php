@@ -132,9 +132,7 @@
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                 aria-labelledby="drop2">
                                 <div class="message-body">
-                                    <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center gap-2 dropdown-item">
-                                        <h4 style="font-size: 18px; margin-bottom: 0;">Dashboard</h4>
-                                    </a>
+                                   
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                         <button class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</button>
