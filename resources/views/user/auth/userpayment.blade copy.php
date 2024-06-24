@@ -42,15 +42,13 @@
                                 <label class="form-label text-dark-gray text-capitalize fw-600">Name</label>
                                 <input type="text" class="form-control" name="name" id="name"
                                     placeholder="Enter Your Name">
-                                <span class="text-danger" style="display: none" id="name-validation">Name is
-                                    required</span>
+                                <span class="text-danger d-none" id="name-validation">Name is required</span>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label text-dark-gray text-capitalize fw-600">Register Number</label>
                                 <input type="text" class="form-control" name="regno" id="regno"
                                     placeholder="Enter Your Register Number">
-                                <span class="text-danger" style="display: none" id="regno-validation">Register Number is
-                                    required</span>
+                                <span class="text-danger d-none" id="regno-validation">Name is required</span>
 
 
                             </div>
@@ -58,8 +56,7 @@
                                 <label class="form-label text-dark-gray text-capitalize fw-600">Email</label>
                                 <input type="text" class="form-control" name="email" id="email"
                                     placeholder="Enter Your Email">
-                                <span class="text-danger" style="display: none" id="email-validation">Email is
-                                    required</span>
+                                <span class="text-danger d-none" id="email-validation">Name is required</span>
 
 
                             </div>
@@ -71,8 +68,7 @@
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                     @endforeach
                                 </select>
-                                <span class="text-danger" style="display: none" id="course-validation"> Course Name is
-                                    required</span>
+                                <span class="text-danger d-none" id="course-validation">Name is required</span>
 
                             </div>
                             <div class="col-md-6">
@@ -83,8 +79,7 @@
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                     @endforeach
                                 </select>
-                                <span class="text-danger" style="display: none" id="ctype-validation">fee Type is
-                                    required</span>
+                                <span class="text-danger d-none" id="ctype-validation">Name is required</span>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label text-dark-gray text-capitalize fw-600">Amount</label>
@@ -92,12 +87,11 @@
                                     onchange="updateRazorpayAmount()" placeholder="Amount">
                                 <input type="hidden" class="form-control" name="razorpay_payment_id" id="razorpay_id"
                                     value="">
-                                <span class="text-danger" style="display: none" id="amountInput-validation">Amount is
-                                    required</span>
+                                <span class="text-danger d-none" id="amountInput-validation">Name is required</span>
 
                             </div>
                             <div class="col-md-6">
-                                {{-- <button type="button" id="payButton" class="btn btn-primary mt-3">Proceed to Payment</button> --}}
+                                <button type="button" id="payButton" class="btn btn-primary mt-3">Proceed to Payment</button>
                                 <button type="button" id="payButton"
                                     class="btn btn-extra-small btn-base-color btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
                                     data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
@@ -214,7 +208,7 @@
 
                 // Submit the form with all details
                 setTimeout(() => {
-                    document.getElementById('paymentForm').submit();
+                    // document.getElementById('paymentForm').submit();
                 }, 100);
             }
         };
@@ -224,9 +218,8 @@
 
         // Open Razorpay Checkout on button click
         document.getElementById('payButton').addEventListener('click', function(e) {
-            console.log(!document.getElementById('name').value);
-            if (document.getElementById('amountInput').value && 
-                document.getElementById('name').value &&
+            console.log("here");
+            if (document.getElementById('amountInput').value && document.getElementById('name').value &&
                 document.getElementById('regno').value &&
                 document.getElementById('email').value &&
                 document.getElementById('course').value &&
@@ -234,20 +227,8 @@
 
                 rzp.open();
                 e.preventDefault();
-            } if(!document.getElementById('name').value) {
-                document.getElementById("name-validation").style.display = "block";
-            }
-            if(!document.getElementById('regno').value) {
-                document.getElementById("regno-validation").style.display = "block";
-            }
-            if(!document.getElementById('email').value) {
-                document.getElementById("email-validation").style.display = "block";
-            }
-            if(!document.getElementById('course').value) {
-                document.getElementById("course-validation").style.display = "block";
-            }
-            if(!document.getElementById('ctype').value) {
-                document.getElementById("ctype-validation").style.display = "block";
+            } else if (document.getElementById('amountInput').value) {
+                document.getElementById("amountInput-validation").style.display = "block";
             }
         });
     }

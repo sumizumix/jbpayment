@@ -115,7 +115,7 @@
                                 </div>
                             </li>
 
-                            @if (Auth::check() && Auth::user()->role_id == 0)
+                            {{-- @if (Auth::check() && Auth::user()->role_id == 0)
                                 <li class="nav-item position-relative ms-10px xxl-ms-10px xs-ms-0">
                                     <a class="-nav-link nav-icon-hover" href="javascript:void(0)"
                                         id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -140,7 +140,7 @@
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 class="px-2 py-1">
                                                 @csrf
-                                                {{-- <button class="btn btn-primary mx-3 mt-2 d-block">Logout</button> --}}
+                                           
                                                 <button
                                                     class="btn btn-small btn-base-color btn-rounded btn-hover-animation-switch btn-icon-left w-100 md-mx-auto">
                                                     <span>
@@ -156,8 +156,8 @@
 
                                     </div>
                                 </li>
-                            @else
-                            <li class="nav-item">
+                            @else --}}
+                            {{-- <li class="nav-item">
 
 
                                 <div class="header-button ms-10px xxl-ms-10px xs-ms-0">
@@ -176,7 +176,7 @@
                                             class="d-none">
                                             @csrf
                                         </form>
-                                    @else
+                                    @else --}}
                                         <a href="{{ route('admin.login') }}"
                                             class="btn btn-large btn-danger btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
                                             data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
@@ -187,10 +187,10 @@
 
                                             </span>
                                         </a>
-                                    @endif
+                                    {{-- @endif --}}
                                 </div>
                             </li>
-                                @endif
+                                {{-- @endif --}}
 
                         </ul>
                     </div>

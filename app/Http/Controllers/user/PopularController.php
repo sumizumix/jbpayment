@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 class PopularController extends Controller
 {
     public function userpayment(){
+        
+
+        
         $views = DB::table('course')->get();
         $data = DB::table('pay')->get();
         $pay = DB::table('payment')->get();

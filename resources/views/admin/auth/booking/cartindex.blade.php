@@ -114,7 +114,7 @@
                     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                     heightLeft -= pageHeight;
                 }
-                pdf.save('cart_booking_details.pdf');
+                pdf.save('Payment_booking_details.pdf');
 
                 document.body.removeChild(tempContainer);
             });
