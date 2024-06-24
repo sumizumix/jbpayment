@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="container-fluid admin_dashboard">
             <div class="row g-4">
-             
+
                 <div class="col-lg-4">
                     <a href="{{ route('admin.auth.courses.index') }}" class="card h-100 overflow-hidden border border-light-subtle">
                         <div class="card-body p-4">
@@ -14,15 +14,15 @@
                                 </div>
                                 <div class="col-4">
                                     <span
-                                        class="me-1 rounded-circle bg-light-secondary round-80 d-flex align-items-center justify-content-center">
-                                        <i class="ti ti-package text-secondary h1"></i>
+                                        class="me-1 rounded-circle bg-light-danger round-80 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-package text-primary h1"></i>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-               
+
                 <div class="col-lg-4">
                     <a href="{{ route('admin.auth.payment.index') }}" class="card h-100 overflow-hidden border border-light-subtle">
                         <div class="card-body p-4">
@@ -33,15 +33,15 @@
                                 </div>
                                 <div class="col-4">
                                     <span
-                                        class="me-1 rounded-circle bg-light-secondary round-80 d-flex align-items-center justify-content-center">
-                                        <i class="ti ti-file-description text-secondary h1"></i>
+                                        class="me-1 rounded-circle bg-light-danger round-80 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-file-description text-primary h1"></i>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-             
+
             </div>
         </div>
     </div>
