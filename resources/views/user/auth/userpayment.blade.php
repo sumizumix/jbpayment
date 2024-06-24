@@ -49,7 +49,7 @@
                 </div>
                 <div class="mb-2">
                     <label class="form-label text-primary">Course Name</label>
-                    <select name="cname" class="form-control">
+                    <select name="cname" class="form-control" id="course">
                         <option value="">Select Course</option>
                         @foreach($views as $cat)
                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -65,16 +65,105 @@
                         @endforeach
                     </select>
                 </div>
+          
                 <div class="mb-2">
                     <label class="form-label text-primary">Amount</label>
                     <input type="text" class="form-control" name="amount" id="amountInput" onchange="updateRazorpayAmount()" placeholder="Amount">
                     <input type="hidden" class="form-control" name="razorpay_payment_id" id="razorpay_id" value="" >
                 </div>
-        
-                <!-- Payment Button -->
+
+
                 <button type="button" id="payButton" class="btn btn-primary mt-3">Proceed to Payment</button>
-            </div>
+              
+                {{-- <a href="{{ url('/payment/receipt' . $cat->id) }}" type="button" id="payButton" class="btn btn-primary mt-3">Proceed to Payment</a> --}}
+            
+            </form>
         
+     
+        </div>
+    </div>  
+
+                <div style="border: 2px solid #ccc; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 700px; margin: auto; background-color: #fff;">
+                    {{-- <div class="container">
+                        <div class="row">
+                            <div class="col-12" style="text-align: rcenterght;">
+                                <button id="downloadReportBtn" class="btn btn-success">
+                                    <i class="bi bi-download"></i>
+                                   
+                                       
+                                    Download report
+                                </button>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <h6>payment Details</h6>
+                    <div>
+                        <label style="display: inline-block; font-weight: bold; width: 150px;">Register Number:</label>
+                        <span id="displayRegno"></span>
+                    </div>
+                    <div>
+                        <label style="display: inline-block; font-weight: bold; width: 100px;">Name:</label>
+                        <span id="displayName"></span>
+                    </div>
+                    <div>
+                        <label style="display: inline-block; font-weight: bold; width: 100px;">Course:</label>
+                        <span id="displayCourse"></span>
+                    </div>
+                    <div>
+                        <label style="display: inline-block; font-weight: bold; width: 100px;">Amount:</label>
+                        <span id="displayAmount"></span>
+                    </div>
+                    <div>
+                        <label style="font-weight: bold;">GST:</label><span> 18%</span>
+                    </div>
+                    <div>
+                        <label style="font-weight: bold;">Total Amount:</label>
+                        <span id="displayTotalAmount"> 0.00</span>
+                    </div>
+                </div>
+               
+                <!-- Payment Button -->
+               
+            </div>
+            <script>
+       
+                function updateDisplayValues() {
+                    var regno = document.getElementById('regno').value;
+                    var name = document.getElementById('name').value;
+                    var course = document.getElementById('course').options[document.getElementById('course').selectedIndex].text;
+                    var amount = parseFloat(document.getElementById('amountInput').value) || 0;
+        
+                    document.getElementById('displayRegno').innerText = regno;
+                    document.getElementById('displayName').innerText = name;
+                    document.getElementById('displayCourse').innerText = course;
+                    document.getElementById('displayAmount').innerText = amount.toFixed(2);
+        
+                    var totalAmount = amount + 54; 
+                    document.getElementById('displayTotalAmount').innerText = totalAmount.toFixed(2);
+                }
+        
+           
+                document.getElementById('regno').addEventListener('input', updateDisplayValues);
+                document.getElementById('name').addEventListener('input', updateDisplayValues);
+                document.getElementById('course').addEventListener('change', updateDisplayValues);
+                document.getElementById('amountInput').addEventListener('input', updateDisplayValues);
+
+document.getElementById('downloadReportBtn').addEventListener('click', function () {
+            html2canvas(document.querySelector(".container.mt-5")).then(canvas => {
+                var imgData = canvas.toDataURL('image/png');
+                var doc = new jsPDF();
+                doc.addImage(imgData, 'PNG', 10, 10);
+                doc.save('report.pdf');
+            });
+        });
+
+            </script> 
+
+
+   
+
+
+
             <!-- Razorpay Checkout Script -->
             <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
             <script>
@@ -82,7 +171,7 @@
                 function initializeRazorpay(amount) {
                     var options = {
                         key: "{{ env('RAZORPAY_KEY') }}",
-                        amount: amount * 100, // Amount in paise (since Razorpay expects amount in smallest currency unit)
+                        amount: amount * 100 , // Amount in paise (since Razorpay expects amount in smallest currency unit)
                         currency: "INR", // Replace with your currency code
                         name: "Your Company Name",
                         description: "Payment Description",
@@ -118,20 +207,20 @@
         
                 // Function to update Razorpay amount based on user input
                 function updateRazorpayAmount() {
-                    var amount = document.getElementById('amountInput').value;
+                    var amount = parseFloat($('#displayTotalAmount').text());
+                    console.log(amount)
                     if (amount && !isNaN(amount)) {
                         initializeRazorpay(amount); // Reinitialize Razorpay with updated amount
                     } else {
                         // alert('Please enter a valid amount.');
                     }
                 }
-        
-                // Call updateRazorpayAmount initially to set default amount (if needed)
+      
                 updateRazorpayAmount();
             </script>
-        </form>
-        
      
-    </div>
-</div>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 @include('layout.footer')
