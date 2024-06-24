@@ -36,13 +36,13 @@
                             <div class="col-md-6">
                                 <label class="form-label text-dark-gray text-capitalize fw-600">Register Number</label>
                                 <input type="text" class="form-control" name="regno" id="regno"
-                                    placeholder="Enter Your register number">
+                                    placeholder="Enter Your Register Number">
 
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label text-dark-gray text-capitalize fw-600">Email</label>
                                 <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="Enter Your email">
+                                    placeholder="Enter Your Email">
 
                             </div>
                             <div class="col-md-6">
@@ -169,8 +169,8 @@
             key: "{{ env('RAZORPAY_KEY') }}",
             amount: amount * 100, // Amount in paise (since Razorpay expects amount in smallest currency unit)
             currency: "INR", // Replace with your currency code
-            name: "Your Company Name",
-            description: "Payment Description",
+            name: "JB International Academy",
+            description: "JB International Academy Student Payments",
             image: "/images/logo-icon.png",
             prefill: {
                 name: "ABC",
