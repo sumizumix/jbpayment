@@ -127,8 +127,8 @@
 
                             @if (Auth::check() && Auth::user()->role_id == 0)
                                 <li class="nav-item position-relative ms-10px xxl-ms-10px xs-ms-0">
-                                    <a class="-nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="-nav-link nav-icon-hover" href="javascript:void(0)"
+                                        id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('backend-assets/images/profile/user-1.jpg') }}"
                                             alt="" width="35" height="35" class="rounded-circle">
                                     </a>
@@ -167,6 +167,9 @@
                                     </div>
                                 </li>
                             @else
+                            <li class="nav-item">
+
+
                                 <div class="header-button ms-10px xxl-ms-10px xs-ms-0">
                                     @if (Auth::check())
                                         <a href="{{ route('logout') }}"
@@ -196,7 +199,8 @@
                                         </a>
                                     @endif
                                 </div>
-                            @endif
+                            </li>
+                                @endif
 
                         </ul>
                     </div>
@@ -260,68 +264,42 @@
                                         </form>
                                     </div>
 
-
-
-
-
-
-
-                                    @if (Auth::check() && Auth::user()->role_id == 0)
-                                        <div class="nav-item dropdown">
-                                            <a class="nav-link nav-icon-hover" href="javascript:void(0)"
-                                                id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <img src="{{ asset('assets/images/profile/user-1.jpg') }}"
-                                                    alt="" width="35" height="35"
-                                                    class="rounded-circle">
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
-                                                aria-labelledby="drop2">
-                                                <div class="message-body">
-
-                                                    <form id="logout-form" action="{{ route('logout') }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        <button
-                                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="header-button ms-10px xxl-ms-10px xs-ms-0">
-                                                @if (Auth::check())
-                                                    <a href="{{ route('logout') }}"
-                                                        class="btn btn-base-color btn-small btn-rounded btn-box-shadow btn-switch-text fw-600"
-                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                        <span>
-                                                            <span class="btn-double-text" data-text="Logout"> Hi
-                                                                {{ Auth::user()->name }}
-                                                            </span>
-                                                        </span>
-                                                    </a>
-
-                                                    <form id="logout-form" action="{{ route('logout') }}"
-                                                        method="POST" class="d-none">
-                                                        @csrf
-                                                    </form>
-                                                @else
-                                                    <a href="{{ route('admin.login') }}"
-                                                        class="btn btn-large btn-danger btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
-                                                        data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
-                                                        <span>
-                                                            <span class="btn-double-text"
-                                                                data-text="Admin Login">Admin Login</span>
-                                                            <span><i
-                                                                    class="feather icon-feather-arrow-right"></i></span>
-
-                                                        </span>
-                                                    </a>
-                                                @endif
-                                            </div>
-                                    @endif
-
                                 </div>
                             </div>
+                        @else
+                            <div class="header-button ms-10px xxl-ms-10px xs-ms-0">
+                                @if (Auth::check())
+                                    <a href="{{ route('logout') }}"
+                                        class="btn btn-base-color btn-small btn-rounded btn-box-shadow btn-switch-text fw-600"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span>
+                                            <span class="btn-double-text" data-text="Logout"> Hi
+                                                {{ Auth::user()->name }}
+                                            </span>
+                                        </span>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                @else
+                                    <a href="{{ route('admin.login') }}"
+                                        class="btn btn-large btn-danger btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
+                                        data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
+                                        <span>
+                                            <span class="btn-double-text" data-text="Admin Login">Admin Login</span>
+                                            <span><i class="feather icon-feather-arrow-right"></i></span>
+
+                                        </span>
+                                    </a>
+                                @endif
+                            </div>
+                        @endif
+
                     </div>
+                </div>
+            </div>
         </nav>
     </header>
 
