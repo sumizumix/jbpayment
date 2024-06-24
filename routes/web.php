@@ -19,6 +19,8 @@ use App\Http\Controllers\user\RegistrationController;
 use App\Http\Controllers\user\UserRegistrationController;
 
 use App\Http\Controllers\Admin\RazorpayController;
+use App\Http\Controllers\Admin\PaymentController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -77,3 +79,4 @@ Route::post('/logout', [UserRegistrationController::class, 'logout'])->name('log
 Route::get('userwelcome', [PopularController::class,'index'])->name('userwelcome');
 Route::get('userpay', [PopularController::class,'userpayment'])->name('userpayment');
 Route::post('razorpay-payment',[RazorpayController::class,'store'])->name('razorpay.payment.store');
+Route::get('/payment/receipt', [PaymentController::class,'showReceipt'])->name('receipt');
