@@ -157,6 +157,9 @@
                                     </div>
                                 </li>
                             @else
+                            <li class="nav-item">
+
+
                                 <div class="header-button ms-10px xxl-ms-10px xs-ms-0">
                                     @if (Auth::check())
                                         <a href="{{ route('logout') }}"
@@ -186,7 +189,8 @@
                                         </a>
                                     @endif
                                 </div>
-                            @endif
+                            </li>
+                                @endif
 
                         </ul>
                     </div>
