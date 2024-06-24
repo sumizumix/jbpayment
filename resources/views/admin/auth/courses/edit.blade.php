@@ -26,11 +26,11 @@
                                     <label for="description" class="form-label">Title</label>
 
                                     <input type="text" class="form-control" id="seotitle"
-                                        value="{{ $service->seotitle }}" name="seotitle" required>
+                                        value="{{ $service->seotitle }}" name="seotitle" >
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="description"> Seo Description</label>
-                                    <textarea class="form-control" id="seodescription" name="seodescription" rows="3" required>{{$service->seodescription }}</textarea>
+                                    <textarea class="form-control" id="seodescription" name="seodescription" rows="3" >{{$service->seodescription }}</textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Edit Courses</button>
                             </form>

@@ -38,7 +38,9 @@ class ServiceController extends Controller
 
         $request->validate([
             // 'photo' => 'numeric|min:0|max:32767'
-            'name'=>'required'
+            'name'=>'required',
+            'description'=>'required'
+
         ]);
 
         // $statement = DB::select("SHOW TABLE STATUS LIKE 'product'");
@@ -62,6 +64,8 @@ class ServiceController extends Controller
         // Validate the incoming request data
         $request->validate([
             'name' => 'required',
+            'description'=>'required'
+
         ]);
     
         // Update the product data

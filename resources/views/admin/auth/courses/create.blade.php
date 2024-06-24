@@ -22,11 +22,11 @@
 
                             <div class="mb-3">
                                 <label for="description" class="form-label">Title</label>
-                                <textarea class="form-control" id="seotitle" name="seotitle" rows="3" required></textarea>
+                                <textarea class="form-control" id="seotitle" name="seotitle" rows="3" ></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="seodescription" name="seodescription" rows="3" required></textarea>
+                                <textarea class="form-control" id="seodescription" name="seodescription" rows="3" ></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Courses</button>
                         </form>
