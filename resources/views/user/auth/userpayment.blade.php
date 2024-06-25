@@ -98,18 +98,10 @@
                             </div>
                             <div class="col-md-6">
                                 {{-- <button type="button" id="payButton" class="btn btn-primary mt-3">Proceed to Payment</button> --}}
-                                <button type="button" id="payButton"
-                                    class="btn btn-extra-small btn-base-color btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
-                                    data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
-                                    <span>
-                                        <span class="btn-double-text" data-text="Proceed to Payment">Proceed to
-                                            Payment</span>
-                                        <span><i class="feather icon-feather-arrow-up-right"></i></span>
-                                    </span>
-                                </button>
                             </div>
                         </form>
-
+                        
+                        
 
                     </div>
                 </div>
@@ -144,6 +136,15 @@
                             <span id="displayTotalAmount" class="float-end fw-bold"> 0.00</span>
                         </div>
                     </div>
+                    <button type="button" id="payButton"
+                            class="btn btn-extra-small m-3 btn-base-color btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
+                            data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
+                            <span>
+                                <span class="btn-double-text" data-text="Proceed to Payment">Proceed to
+                                    Payment</span>
+                                <span><i class="feather icon-feather-arrow-up-right"></i></span>
+                            </span>
+                        </button>
                 </div>
             </div>
         </div>

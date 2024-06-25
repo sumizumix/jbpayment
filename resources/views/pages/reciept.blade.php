@@ -56,6 +56,10 @@
                             <label class="fw-normal text-start">Method:</label>
                             <span class="float-end fw-bold">{{ $method }}</span>
                         </div>
+                        <div class="border-bottom pb-5px pt-5px">
+                            <label class="fw-normal text-start">Date:</label>
+                            <span class="float-end fw-bold">{{ $created_at }}</span>
+                        </div>
                         <div class="pb-5px pt-5px">
                             <label class="fw-normal text-start">Amount:</label>
                             <span class="float-end fw-bold"> {{ $amount }}/-</span>

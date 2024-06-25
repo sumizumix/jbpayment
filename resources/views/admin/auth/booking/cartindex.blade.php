@@ -47,11 +47,13 @@
                                             <th scope="col">Course</th>
                                             <th scope="col">Fee type</th>
                                             <th scope="col">Amount</th>
+                                            <th scope="col">Date</th>
                                             <th scope="col">Razorid</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tableContent">
                                         @foreach ($cart as $row)
+                                      
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $row->pname }}</td>  
@@ -59,6 +61,7 @@
                                                 <td>{{ $row->coname }}</td>  
                                                 <td>{{ $row->fname }}</td>                    
                                                 <td>{{ $row->amount }}</td>
+                                                <td>{{ $row->cdate }}</td>
                                                 <td>{{ $row->r_payment_id }}</td>
                                             </tr>
                                         @endforeach
