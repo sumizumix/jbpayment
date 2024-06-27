@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4">fees Details</h5>
+                <h5 class="card-title fw-semibold mb-4">Fees Details</h5>
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('admin.payment.store') }}" method="POST" enctype="multipart/form-data">
@@ -18,13 +18,14 @@
 
                             <div class="mb-3">
                                 <label for="description" class="form-label">Title</label>
-                                <textarea class="form-control" id="seotitle" name="seotitle" rows="3" ></textarea>
+                                {{-- <textarea class="form-control" id="seotitle" name="seotitle" rows="3" required ></textarea> --}}
+                                <input type="text" class="form-control"  id="seotitle" name="seotitle" required>
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="seodescription" name="seodescription" rows="3" ></textarea>
+                                <textarea class="form-control" id="seodescription" name="seodescription" rows="3" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add fees Type</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add Fees Type</button>
                         </form>
                     </div>
                 </div>

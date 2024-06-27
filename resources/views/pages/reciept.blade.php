@@ -30,19 +30,20 @@
                     Download Report
                 </button>
                 <div class="payment-info card shadow-lg border-0 w-100">
-                    {{-- <div class="card-body p-30px">
-                        <h5 class="fw-bold fs-18 border-bottom border-base-color">Payment Information:</h5>
-                        <p><strong>Name:</strong> {{ $name }}</p>
-                        <p><strong>Registration Number:</strong> {{ $regno }}</p>
-                        <p><strong>Payment ID:</strong> {{ $r_payment_id }}</p>
-                        <p><strong>Method:</strong> {{ $method }}</p>
-                        <p><strong>Amount:</strong> {{ $amount }}/-</p>
-                    </div> --}}
+                 
                     <div class="card-body p-30px">
                         <h6 class="fw-bold fs-18 border-bottom border-base-color">Payment Information</h6>
                         <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Name:</label>
                             <span class="float-end fw-bold">{{ $name }}</span>
+                        </div>
+                        <div class="border-bottom pb-5px pt-5px">
+                            <label class="fw-normal text-start">Course:</label>
+                            <span class="float-end fw-bold">{{ $cname }} </span>
+                        </div>
+                        <div class="border-bottom pb-5px pt-5px">
+                            <label class="fw-normal text-start">Free Type:</label>
+                            <span class="float-end fw-bold">{{ $ctype }}</span>
                         </div>
                         <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Register Number:</label>

@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="card-title fw-semibold m-0">fees Details</h5>
+                        <h5 class="card-title fw-semibold m-0">Fees Details</h5>
                         <a href="{{ route('admin.auth.payment.create') }}" class="btn btn-primary btn-sm">
                             <i class="ti ti-plus"></i> Add New
                         </a>

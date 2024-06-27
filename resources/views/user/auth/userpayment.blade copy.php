@@ -146,7 +146,7 @@
         document.getElementById('displayCourse').innerText = course;
         document.getElementById('displayAmount').innerText = amount.toFixed(2);
 
-        var totalAmount = amount + 54;
+        var totalAmount = amount +amount*(18/100);
         document.getElementById('displayTotalAmount').innerText = totalAmount.toFixed(2);
     }
 

@@ -36,6 +36,9 @@ class RazorpayController extends Controller
         if (count($input) && !empty($input['razorpay_payment_id'])) {
             try {
                 $response = $api->payment->fetch($input['razorpay_payment_id'])->capture(array('amount' => $payment['amount']));
+                $course = DB::table('course')->where('id', $input['cname'])->first();
+                $pay = DB::table('pay')->where('id', $input['ctype'])->first();
+    
                 // Creating the PaymentModel record
                 $payment = PaymentModel::create([
                     'r_payment_id' => $response['id'],
@@ -61,8 +64,8 @@ class RazorpayController extends Controller
                     'amount' => $response['amount'] / 100,
                     'json_response' => json_encode((array) $response),
                     'userid' => Auth::id(),
-                    'cname' => $input['cname'],
-                    'ctype' => $input['ctype'],
+                    'cname' => $course->name,
+                    'ctype' => $pay->name,
                     'name' => $input['name'],
                     'regno' => $input['regno'],
                     'email' => $input['email'],

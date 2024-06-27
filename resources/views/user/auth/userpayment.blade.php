@@ -124,6 +124,10 @@
                             <span id="displayCourse" class="float-end fw-bold"></span>
                         </div>
                         <div class="border-bottom pb-5px pt-5px">
+                            <label class="fw-normal text-start">Free Type:</label>
+                            <span id="displayctype" class="float-end fw-bold"></span>
+                        </div>
+                        <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Amount:</label>
                             <span id="displayAmount" class="float-end fw-bold"></span>
                         </div>
@@ -156,14 +160,16 @@
         var regno = document.getElementById('regno').value;
         var name = document.getElementById('name').value;
         var course = document.getElementById('course').options[document.getElementById('course').selectedIndex].text;
+        var ctype = document.getElementById('ctype').options[document.getElementById('ctype').selectedIndex].text;
         var amount = parseFloat(document.getElementById('amountInput').value) || 0;
 
         document.getElementById('displayRegno').innerText = regno;
         document.getElementById('displayName').innerText = name;
         document.getElementById('displayCourse').innerText = course;
+        document.getElementById('displayctype').innerText = ctype;
         document.getElementById('displayAmount').innerText = amount.toFixed(2);
 
-        var totalAmount = amount + 54;
+        var totalAmount = amount+amount * (18/100);
         document.getElementById('displayTotalAmount').innerText = totalAmount.toFixed(2);
     }
 
@@ -171,6 +177,7 @@
     document.getElementById('regno').addEventListener('input', updateDisplayValues);
     document.getElementById('name').addEventListener('input', updateDisplayValues);
     document.getElementById('course').addEventListener('change', updateDisplayValues);
+    document.getElementById('ctype').addEventListener('change', updateDisplayValues);
     document.getElementById('amountInput').addEventListener('input', updateDisplayValues);
 
     document.getElementById('downloadReportBtn').addEventListener('click', function() {
