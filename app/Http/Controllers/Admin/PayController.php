@@ -45,7 +45,7 @@ class PayController extends Controller
         
 
         $service->fill($data)->save();
-        return redirect()->route('admin.auth.payment.index')->with('success', 'paymodel added successfully!');
+        return redirect()->route('admin.auth.payment.index')->with('success', 'Fees added successfully!');
     }
 
     public function edit($id)
@@ -74,7 +74,7 @@ class PayController extends Controller
         $service->update($data);
     
         // Redirect back with success message
-        return redirect()->route('admin.auth.payment.index')->with('success', 'paymodel Details  updated successfully!');
+        return redirect()->route('admin.auth.payment.index')->with('success', 'Fees Details  updated successfully!');
     }
     
     public function destroy($id)
@@ -85,6 +85,6 @@ class PayController extends Controller
         
         $service = paymodel::findOrFail($id);
         $service->delete();
-        return Redirect()->back()->with('success', 'paymodel  deleted successfully!');
+        return Redirect()->back()->with('success', 'Fees  deleted successfully!');
     }
 }

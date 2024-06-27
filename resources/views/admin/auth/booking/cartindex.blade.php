@@ -45,7 +45,7 @@
                                             <th scope="col">Student Name</th>
                                             <th scope="col">Register Number</th>
                                             <th scope="col">Course</th>
-                                            <th scope="col">Fee type</th>
+                                            <th scope="col">Fee Type</th>
                                             <th scope="col">Amount</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Razorid</th>
@@ -67,9 +67,22 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div id="noResults" style="display: none;">
-                                    Data is not found
-                                </div>
+                                <div id="noResults"
+                                style="
+                            display: none;
+                            text-align: center;
+                            color: #de1f1f;
+                            font-size: 20px;
+                            font-weight: bold;
+                            margin-top: 20px;
+                            padding: 10px;
+                            border: 2px solid #de3535;
+                border-radius: 5px;
+        background-color: rgb(255, 200, 200);
+;
+                        ">
+                                Data is not found</div>
+                            </div>
                             </div>
                         </div>
                     </div>

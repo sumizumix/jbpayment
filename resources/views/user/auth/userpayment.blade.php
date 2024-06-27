@@ -24,7 +24,7 @@
 
         <div class="row g-4">
             <div class="col-12 col-lg-8">
-                <div class="card shadow-lg border-0">
+                <div class="card shadow-lg border-0 h-100">
                     <div class="card-body text-start p-40px">
                         <form action="{{ route('razorpay.payment.store') }}" class="row g-3" id="paymentForm"
                             method="POST">
@@ -100,14 +100,14 @@
                                 {{-- <button type="button" id="payButton" class="btn btn-primary mt-3">Proceed to Payment</button> --}}
                             </div>
                         </form>
-                        
-                        
+
+
 
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-4">
-                <div class="card shadow-lg border-0">
+                <div class="card shadow-lg border-0 h-100">
                     <div class="card-body p-30px">
                         <h6 class="fw-bold fs-18 border-bottom border-base-color">Payment Details</h6>
                         <div class="border-bottom pb-5px pt-5px">
@@ -124,6 +124,10 @@
                             <span id="displayCourse" class="float-end fw-bold"></span>
                         </div>
                         <div class="border-bottom pb-5px pt-5px">
+                            <label class="fw-normal text-start">Fee Type:</label>
+                            <span id="displayctype" class="float-end fw-bold"></span>
+                        </div>
+                        <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Amount:</label>
                             <span id="displayAmount" class="float-end fw-bold"></span>
                         </div>
@@ -135,16 +139,18 @@
                             <label class="fw-normal text-start">Total Amount:</label>
                             <span id="displayTotalAmount" class="float-end fw-bold"> 0.00</span>
                         </div>
+                        <div class="mt-5">
+                            <button type="button" id="payButton"
+                                class="btn btn-extra-small btn-base-color btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
+                                data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
+                                <span>
+                                    <span class="btn-double-text" data-text="Proceed to Payment">Proceed to
+                                        Payment</span>
+                                    <span><i class="feather icon-feather-arrow-up-right"></i></span>
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                    <button type="button" id="payButton"
-                            class="btn btn-extra-small m-3 btn-base-color btn-rounded btn-box-shadow btn-switch-text d-inline-block align-middle fw-600 appear anime-complete"
-                            data-anime='{ "translateY": [100, 0], "easing": "easeOutCubic", "duration": 900, "delay": 500 }'>
-                            <span>
-                                <span class="btn-double-text" data-text="Proceed to Payment">Proceed to
-                                    Payment</span>
-                                <span><i class="feather icon-feather-arrow-up-right"></i></span>
-                            </span>
-                        </button>
                 </div>
             </div>
         </div>
@@ -156,14 +162,16 @@
         var regno = document.getElementById('regno').value;
         var name = document.getElementById('name').value;
         var course = document.getElementById('course').options[document.getElementById('course').selectedIndex].text;
+        var ctype = document.getElementById('ctype').options[document.getElementById('ctype').selectedIndex].text;
         var amount = parseFloat(document.getElementById('amountInput').value) || 0;
 
         document.getElementById('displayRegno').innerText = regno;
         document.getElementById('displayName').innerText = name;
         document.getElementById('displayCourse').innerText = course;
+        document.getElementById('displayctype').innerText = ctype;
         document.getElementById('displayAmount').innerText = amount.toFixed(2);
 
-        var totalAmount = amount + 54;
+        var totalAmount = amount + amount * (18 / 100);
         document.getElementById('displayTotalAmount').innerText = totalAmount.toFixed(2);
     }
 
@@ -171,6 +179,7 @@
     document.getElementById('regno').addEventListener('input', updateDisplayValues);
     document.getElementById('name').addEventListener('input', updateDisplayValues);
     document.getElementById('course').addEventListener('change', updateDisplayValues);
+    document.getElementById('ctype').addEventListener('change', updateDisplayValues);
     document.getElementById('amountInput').addEventListener('input', updateDisplayValues);
 
     document.getElementById('downloadReportBtn').addEventListener('click', function() {
@@ -226,7 +235,7 @@
         // Open Razorpay Checkout on button click
         document.getElementById('payButton').addEventListener('click', function(e) {
             console.log(!document.getElementById('name').value);
-            if (document.getElementById('amountInput').value && 
+            if (document.getElementById('amountInput').value &&
                 document.getElementById('name').value &&
                 document.getElementById('regno').value &&
                 document.getElementById('email').value &&
@@ -235,19 +244,20 @@
 
                 rzp.open();
                 e.preventDefault();
-            } if(!document.getElementById('name').value) {
+            }
+            if (!document.getElementById('name').value) {
                 document.getElementById("name-validation").style.display = "block";
             }
-            if(!document.getElementById('regno').value) {
+            if (!document.getElementById('regno').value) {
                 document.getElementById("regno-validation").style.display = "block";
             }
-            if(!document.getElementById('email').value) {
+            if (!document.getElementById('email').value) {
                 document.getElementById("email-validation").style.display = "block";
             }
-            if(!document.getElementById('course').value) {
+            if (!document.getElementById('course').value) {
                 document.getElementById("course-validation").style.display = "block";
             }
-            if(!document.getElementById('ctype').value) {
+            if (!document.getElementById('ctype').value) {
                 document.getElementById("ctype-validation").style.display = "block";
             }
         });

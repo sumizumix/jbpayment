@@ -25,9 +25,12 @@ class PaymentController extends Controller
        
             $paymentDetails = Session::get('payment');
             //  $cart=DB::table('payment')->get();
-             $cart=DB::table('payment')->select('payment.*','course.*','course.name as coname','payment.name as pname')->
+             $cart=DB::table('payment')->select('payment.*','course.*','pay.*','course.name as coname','payment.name as pname','pay.name as payname')->
              join('course','course.id','=','payment.cname')->
+             join('pay','pay.id','=','payment.ctype')->
+             
              get();
+             dd($cart);
             return view('pages.reciept', compact('paymentDetails','cart'));
        
     }

@@ -4,14 +4,14 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-semibold mb-4">Edit fees</h5>
+                    <h5 class="card-title fw-semibold mb-4">Edit Fees</h5>
                     <div class="card">
                         <div class="card-body p-4">
                             <form action="{{ url('admin/payment/update/' . $service->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">fees Name</label>
+                                    <label for="name" class="form-label">Fees Name</label>
                                     <input type="text" class="form-control" id="name" value="{{ $service->name }}" a
                                         name="name" required>
                                 </div>
@@ -27,7 +27,7 @@
                                     <label class="form-label" for="description"> Seo Description</label>
                                     <textarea class="form-control" id="seodescription" name="seodescription" rows="3" required>{{$service->seodescription }}</textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Edit fees</button>
+                                <button type="submit" class="btn btn-primary">Edit Fees</button>
                             </form>
                         </div>
                     </div>
