@@ -30,9 +30,12 @@
                     Download Report
                 </button>
                 <div class="payment-info card shadow-lg border-0 w-100">
-                 
+
                     <div class="card-body p-30px">
-                        <h6 class="fw-bold fs-18 border-bottom border-base-color">Payment Information</h6>
+                        <div class="d-flex align-items-end justify-content-between border-bottom border-base-color pb-3">
+                            <img src="{{ asset('frontend-assets/images/jb-international-logo-dark.png') }}" style="width: auto; height: 60px;">
+                            <h6 class="fw-bold fs-18 m-0">Payment Information</h6>
+                        </div>
                         <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Name:</label>
                             <span class="float-end fw-bold">{{ $name }}</span>
@@ -51,7 +54,7 @@
                         </div>
                         <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Payment ID:</label>
-                            <span  class="float-end fw-bold">{{ $r_payment_id }}</span>
+                            <span class="float-end fw-bold">{{ $r_payment_id }}</span>
                         </div>
                         <div class="border-bottom pb-5px pt-5px">
                             <label class="fw-normal text-start">Method:</label>
